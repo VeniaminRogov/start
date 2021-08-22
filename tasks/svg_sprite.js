@@ -4,18 +4,22 @@ const {
 } = require('gulp');
 const svgmin = require('gulp-svgmin');
 const sprite = require('gulp-svg-sprite');
+const cheerio = require('gulp-cheerio');
+const replace = require('gulp-replace');
 
 module.exports = function svg_sprite() {
   return src('src/svg/**/*.svg')
-    .pipe(svgmin({
-      plugins: [{
-          removeComments: true
-        },
-        {
-          removeEmptyContainers: true
-        }
-      ]
+    .pipe(svgmin())
+    .pipe(cheerio({
+      run: function ($) {
+        $('[fill]').removeAttr('fill');
+        $('[style]').removeAttr('style');
+      },
+      parserOptions: {
+        xmlMode: true
+      }
     }))
+    .pipe(replace('&gt;', '>'))
     .pipe(sprite({
       mode: {
         stack: {

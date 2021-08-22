@@ -1,4 +1,4 @@
-const plugins = [];
+const plugins = ['./node_modules/jquery/dist/jquery.js', './node_modules/slick-slider/slick/slick.js'];
 const {
   src,
   dest
