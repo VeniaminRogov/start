@@ -11,8 +11,6 @@ exports.html = tasks.html;
 exports.php = tasks.php;
 exports.rastr = tasks.rastr;
 exports.webp = tasks.webp;
-exports.svg_css = tasks.svg_css;
-exports.svg_sprite = tasks.svg_sprite;
 exports.ttf = tasks.ttf;
 exports.fonts = tasks.fonts;
 exports.bs_html = tasks.bs_html;
@@ -26,8 +24,6 @@ exports.default = gulp.parallel(
   exports.dev_js,
   exports.rastr,
   exports.webp,
-  exports.svg_css,
-  exports.svg_sprite,
   exports.ttf,
   exports.fonts,
   exports.html,
