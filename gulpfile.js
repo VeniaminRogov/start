@@ -4,7 +4,7 @@ const tasks = requireDir('./tasks');
 
 exports.style = tasks.style;
 exports.libs_style = tasks.libs_style;
-exports.build_js = tasks.build_js;
+// exports.build_js = tasks.build_js;
 exports.libs_js = tasks.libs_js;
 exports.dev_js = tasks.dev_js;
 exports.html = tasks.html;
