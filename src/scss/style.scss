@@ -1,4 +1,111 @@
-@import "base/*.scss";
-@import "global/*.scss";
-@import "../components/**/*.scss";
-@import "**/_*.scss";
+@use "sass:math";
+
+@import "global/vars";
+@import "global/normalize";
+@import "global/mixin";
+@import "global/fonts";
+@import "global/icons";
+@import "global/ui";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  font-size: $fontSize-main;
+  font-family: $font-family, sans-serif;
+  font-weight: 400;
+  color: $color-main;
+
+  &.--lock {
+    overflow: hidden;
+  }
+}
+
+ul,
+ol,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1 1 auto;
+}
+
+.container {
+  max-width: $maxWidthContainer + px;
+  margin: 0 auto;
+  // padding: 0 15px;
+}
+
+.title {
+  @include adaptive-value("font-size", 40, 24, 1);
+  line-height: 120%;
+  font-weight: 700;
+  text-align: center;
+}
+
+._ibg {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+
+  & img {
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@import "/components/**/*.scss";
